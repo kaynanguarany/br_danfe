@@ -4,14 +4,14 @@ describe BrDanfe::DanfeLib::Xprod do
   describe '#render' do
     context 'when have FCI' do
       let(:xml_fci) do
-        xml = <<-eos
+        xml = <<-XML
         <det nItem="1">
           <prod>
             <xProd>MONITOR DE ARCO ELETRICO</xProd>
             <nFCI>12232531-74B2-4FDD-87A6-CF0AD3E55386</nFCI>
           </prod>
         </det>
-        eos
+        XML
 
         Nokogiri::XML(xml)
       end
@@ -28,7 +28,7 @@ describe BrDanfe::DanfeLib::Xprod do
 
     context 'when have ST' do
       let(:xml_st) do
-        xml = <<-eos
+        xml = <<-XML
         <det nItem="1">
           <prod>
             <xProd>MONITOR DE ARCO ELETRICO</xProd>
@@ -45,7 +45,7 @@ describe BrDanfe::DanfeLib::Xprod do
             </ICMS>
           </imposto>
         </det>
-        eos
+        XML
 
         Nokogiri::XML(xml)
       end
@@ -63,14 +63,14 @@ describe BrDanfe::DanfeLib::Xprod do
 
     context 'when have infAdProd' do
       let(:xml_infAdProd) do
-        xml = <<-eos
+        xml = <<-XML
         <det nItem="1">
           <prod>
             <xProd>MONITOR DE ARCO ELETRICO</xProd>
           </prod>
           <infAdProd>Informações adicionais do produto</infAdProd>
         </det>
-        eos
+        XML
 
         Nokogiri::XML(xml)
       end
@@ -88,7 +88,7 @@ describe BrDanfe::DanfeLib::Xprod do
 
     context 'when have FCP' do
       let(:xml_fcp) do
-        xml = <<-eos
+        xml = <<-XML
         <det nItem="1">
           <prod>
             <xProd>MONITOR DE ARCO ELETRICO</xProd>
@@ -101,7 +101,7 @@ describe BrDanfe::DanfeLib::Xprod do
             </ICMS>
           </imposto>
         </det>
-        eos
+        XML
 
         Nokogiri::XML(xml)
       end
@@ -119,7 +119,7 @@ describe BrDanfe::DanfeLib::Xprod do
 
     context 'when have FCI + ST + infAdProd + FCP' do
       let(:xml_IFC_ST_infAdProd) do
-        xml = <<-eos
+        xml = <<-XML
         <det nItem="1">
           <prod>
             <xProd>MONITOR DE ARCO ELETRICO</xProd>
@@ -142,7 +142,7 @@ describe BrDanfe::DanfeLib::Xprod do
           </imposto>
           <infAdProd>Informações adicionais do produto</infAdProd>
         </det>
-        eos
+        XML
 
         Nokogiri::XML(xml)
       end

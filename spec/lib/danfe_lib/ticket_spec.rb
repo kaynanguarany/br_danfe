@@ -11,7 +11,7 @@ describe BrDanfe::DanfeLib::Ticket do
 
   describe '#render' do
     let(:xml_as_string) do
-      <<-eos
+      <<-XML
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
         <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
           <ide>
@@ -23,7 +23,7 @@ describe BrDanfe::DanfeLib::Ticket do
           </emit>
         </infNFe>
       </NFe>
-      eos
+      XML
     end
 
     before do

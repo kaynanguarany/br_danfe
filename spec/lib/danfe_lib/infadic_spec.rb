@@ -11,7 +11,7 @@ describe BrDanfe::DanfeLib::Infadic do
 
   describe '#render' do
     let(:xml_as_string) do
-      <<-eos
+      <<-XML
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
         <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
           <ide>
@@ -75,7 +75,7 @@ describe BrDanfe::DanfeLib::Infadic do
           </total>
         </infNFe>
       </NFe>
-      eos
+      XML
     end
 
     context 'without extra volume' do
@@ -94,7 +94,7 @@ describe BrDanfe::DanfeLib::Infadic do
 
       context 'with difal' do
         let(:xml_as_string) do
-          <<-eos
+          <<-XML
           <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
             <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
               <transp>
@@ -135,7 +135,7 @@ describe BrDanfe::DanfeLib::Infadic do
               </total>
             </infNFe>
           </NFe>
-          eos
+          XML
         end
 
         it 'renders xml to the pdf' do
@@ -149,7 +149,7 @@ describe BrDanfe::DanfeLib::Infadic do
 
       context 'with too big address' do
         let(:xml_as_string) do
-          <<-eos
+          <<-XML
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
         <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
           <ide>
@@ -180,7 +180,7 @@ describe BrDanfe::DanfeLib::Infadic do
           </infAdic>
         </infNFe>
       </NFe>
-          eos
+          XML
         end
 
         it 'renders xml to the pdf with street on observation' do
@@ -209,7 +209,7 @@ describe BrDanfe::DanfeLib::Infadic do
 
       context 'with difal' do
         let(:xml_as_string) do
-          <<-eos
+          <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <transp>
@@ -248,7 +248,7 @@ describe BrDanfe::DanfeLib::Infadic do
             </ICMSTot>
           </infNFe>
         </NFe>
-          eos
+          XML
         end
 
         it 'renders xml to the pdf' do

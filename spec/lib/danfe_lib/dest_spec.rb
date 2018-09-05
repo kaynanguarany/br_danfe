@@ -16,7 +16,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context "when nf-e's version is 2.00" do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <ide>
@@ -44,7 +44,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -58,7 +58,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context "when nf-e's version is 3.10" do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="3.10">
             <ide>
@@ -85,7 +85,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -99,7 +99,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context "when nf-e's version is 4.00" do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="4.00">
             <ide>
@@ -126,7 +126,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -140,7 +140,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context 'when recipient has CNPJ' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="3.10">
             <dest>
@@ -148,7 +148,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -162,7 +162,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context 'when recipient has CPF' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="3.10">
             <dest>
@@ -170,7 +170,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -184,7 +184,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context 'when recipient has IE' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="3.10">
             <dest>
@@ -195,7 +195,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -209,7 +209,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context "when recipient doesn't have address complement" do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="3.10">
             <ide>
@@ -235,7 +235,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to the pdf' do
@@ -250,7 +250,7 @@ describe BrDanfe::DanfeLib::Dest do
 
     context 'when recipient address (xLgr + nro + xCpl) has more than 63 characters' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="3.10">
             <ide>
@@ -277,7 +277,7 @@ describe BrDanfe::DanfeLib::Dest do
             </dest>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders xml to pdf discarding the address of after 63 characters' do

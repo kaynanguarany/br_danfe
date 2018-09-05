@@ -11,7 +11,7 @@ describe BrDanfe::DanfeLib::Transp do
 
   describe '#render' do
     let(:xml_as_string) do
-      <<-eos
+      <<-XML
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
         <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
           <transp>
@@ -32,7 +32,7 @@ describe BrDanfe::DanfeLib::Transp do
           </transp>
         </infNFe>
       </NFe>
-      eos
+      XML
     end
 
     before do
@@ -50,7 +50,7 @@ describe BrDanfe::DanfeLib::Transp do
 
     context 'when modFrete is 0' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <transp>
@@ -58,7 +58,7 @@ describe BrDanfe::DanfeLib::Transp do
             </transp>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it "renders '0-Emitente' to the pdf" do
@@ -72,7 +72,7 @@ describe BrDanfe::DanfeLib::Transp do
 
     context 'when modFrete is 1' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <transp>
@@ -80,7 +80,7 @@ describe BrDanfe::DanfeLib::Transp do
             </transp>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it "renders '1-Destinatário' to the pdf" do
@@ -94,7 +94,7 @@ describe BrDanfe::DanfeLib::Transp do
 
     context 'when modFrete is 2' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <transp>
@@ -102,7 +102,7 @@ describe BrDanfe::DanfeLib::Transp do
             </transp>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it "renders '2-Terceiros' to the pdf" do
@@ -116,7 +116,7 @@ describe BrDanfe::DanfeLib::Transp do
 
     context 'when modFrete is 9' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <transp>
@@ -124,7 +124,7 @@ describe BrDanfe::DanfeLib::Transp do
             </transp>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it "renders '9-Sem Frete' to the pdf" do

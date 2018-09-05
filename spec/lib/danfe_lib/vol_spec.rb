@@ -11,7 +11,7 @@ describe BrDanfe::DanfeLib::Vol do
 
   describe '#render' do
     let(:xml_as_string) do
-      <<-eos
+      <<-XML
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
         <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
           <transp>
@@ -42,7 +42,7 @@ describe BrDanfe::DanfeLib::Vol do
           </transp>
         </infNFe>
       </NFe>
-      eos
+      XML
     end
 
     before do
@@ -64,14 +64,14 @@ describe BrDanfe::DanfeLib::Vol do
 
     context 'when any <vol> tag is found' do
       let(:xml_as_string) do
-        <<-eos
+        <<-XML
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
             <transp>
             </transp>
           </infNFe>
         </NFe>
-        eos
+        XML
       end
 
       it 'renders blank boxes' do

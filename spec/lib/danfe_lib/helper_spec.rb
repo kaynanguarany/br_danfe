@@ -96,7 +96,7 @@ describe BrDanfe::DanfeLib::Helper do
 
   describe '.no_fiscal_value?' do
     let(:xml_homologation) do
-      xml = <<-eos
+      xml = <<-XML
         <nfeProc>
           <NFe>
             <infNFe>
@@ -111,25 +111,25 @@ describe BrDanfe::DanfeLib::Helper do
             </protNFe>
           </NFe>
         </nfeProc>
-      eos
+      XML
 
       Nokogiri::XML(xml)
     end
 
     let(:xml_unauthorized) do
-      xml = <<-eos
+      xml = <<-XML
         <nfeProc>
           <protNFe>
             <infProt></infProt>
           </protNFe>
         </nfeProc>
-      eos
+      XML
 
       Nokogiri::XML(xml)
     end
 
     let(:xml_authorized) do
-      xml = <<-eos
+      xml = <<-XML
         <nfeProc>
           <NFe>
             <infNFe>
@@ -144,7 +144,7 @@ describe BrDanfe::DanfeLib::Helper do
             </infProt>
           </protNFe>
         </nfeProc>
-      eos
+      XML
 
       Nokogiri::XML(xml)
     end
@@ -190,13 +190,13 @@ describe BrDanfe::DanfeLib::Helper do
 
   describe '.generate_address' do
     let(:xml) do
-      <<-eos
+      <<-XML
         <enderDest>
           <xLgr>Rua do governo do estado</xLgr>
           <nro>1125</nro>
           <xCpl>Em anexo ao super mercado maior do bairro</xCpl>
         </enderDest>
-      eos
+      XML
     end
 
     let(:xml_street) do
@@ -210,13 +210,13 @@ describe BrDanfe::DanfeLib::Helper do
 
     context "when recipient address hasn't complement" do
       let(:xml) do
-        <<-eos
+        <<-XML
         <enderDest>
           <xLgr>Rua do governo do estado</xLgr>
           <nro>1125</nro>
           <xCpl></xCpl>
         </enderDest>
-        eos
+        XML
       end
 
       it 'returns the address with the street and number' do
@@ -227,13 +227,13 @@ describe BrDanfe::DanfeLib::Helper do
 
     context "when recipient address hasn't complement and number" do
       let(:xml) do
-        <<-eos
+        <<-XML
         <enderDest>
           <xLgr>Rua do governo do estado</xLgr>
           <nro></nro>
           <xCpl></xCpl>
         </enderDest>
-        eos
+        XML
       end
 
       it 'returns the address with the street only' do
@@ -244,13 +244,13 @@ describe BrDanfe::DanfeLib::Helper do
 
     context "when recipient address hasn't number" do
       let(:xml) do
-        <<-eos
+        <<-XML
         <enderDest>
           <xLgr>Rua do governo do estado</xLgr>
           <nro></nro>
           <xCpl>Em anexo ao super mercado maior do bairro</xCpl>
         </enderDest>
-        eos
+        XML
       end
 
       it 'returns the address with the street and complement' do

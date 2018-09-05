@@ -12,7 +12,7 @@ describe BrDanfe::DanfeLib::EmitHeader do
 
   describe '#render' do
     let(:xml_as_string) do
-      <<-eos
+      <<-XML
       <nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="2.00">
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
           <infNFe Id="NFe25111012345678901234550020000134151000134151" versao="2.00">
@@ -48,7 +48,7 @@ describe BrDanfe::DanfeLib::EmitHeader do
           </infProt>
         </protNFe>
       </nfeProc>
-      eos
+      XML
     end
 
     context 'render emitter on first page' do
