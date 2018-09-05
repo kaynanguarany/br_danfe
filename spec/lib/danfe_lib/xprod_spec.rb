@@ -1,10 +1,8 @@
-#encoding: utf-8
-
-require "spec_helper"
+require 'spec_helper'
 
 describe BrDanfe::DanfeLib::Xprod do
-  describe "#render" do
-    context "when have FCI" do
+  describe '#render' do
+    context 'when have FCI' do
       let(:xml_fci) do
         xml = <<-eos
         <det nItem="1">
@@ -20,15 +18,15 @@ describe BrDanfe::DanfeLib::Xprod do
 
       subject { BrDanfe::DanfeLib::Xprod.new(xml_fci) }
 
-      it "returns product + FCI" do
-        expected = "MONITOR DE ARCO ELETRICO"
+      it 'returns product + FCI' do
+        expected = 'MONITOR DE ARCO ELETRICO'
         expected += "\n"
-        expected +="FCI: 12232531-74B2-4FDD-87A6-CF0AD3E55386"
+        expected += 'FCI: 12232531-74B2-4FDD-87A6-CF0AD3E55386'
         expect(subject.render).to eq expected
       end
     end
 
-    context "when have ST" do
+    context 'when have ST' do
       let(:xml_st) do
         xml = <<-eos
         <det nItem="1">
@@ -54,16 +52,16 @@ describe BrDanfe::DanfeLib::Xprod do
 
       subject { BrDanfe::DanfeLib::Xprod.new(xml_st) }
 
-      it "returns product + ST" do
-        expected = "MONITOR DE ARCO ELETRICO"
+      it 'returns product + ST' do
+        expected = 'MONITOR DE ARCO ELETRICO'
         expected += "\n"
-        expected += "ST: MVA: 56,00% * Alíq: 17,00% * BC: 479,82 * Vlr: 29,28"
+        expected += 'ST: MVA: 56,00% * Alíq: 17,00% * BC: 479,82 * Vlr: 29,28'
 
         expect(subject.render).to eq expected
       end
     end
 
-    context "when have infAdProd" do
+    context 'when have infAdProd' do
       let(:xml_infAdProd) do
         xml = <<-eos
         <det nItem="1">
@@ -79,16 +77,16 @@ describe BrDanfe::DanfeLib::Xprod do
 
       subject { BrDanfe::DanfeLib::Xprod.new(xml_infAdProd) }
 
-      it "returns product + infAdProd" do
-        expected = "MONITOR DE ARCO ELETRICO"
+      it 'returns product + infAdProd' do
+        expected = 'MONITOR DE ARCO ELETRICO'
         expected += "\n"
-        expected += "Informações adicionais do produto"
+        expected += 'Informações adicionais do produto'
 
         expect(subject.render).to eq expected
       end
     end
 
-    context "when have FCP" do
+    context 'when have FCP' do
       let(:xml_fcp) do
         xml = <<-eos
         <det nItem="1">
@@ -110,16 +108,16 @@ describe BrDanfe::DanfeLib::Xprod do
 
       subject { BrDanfe::DanfeLib::Xprod.new(xml_fcp) }
 
-      it "returns product + FCP" do
-        expected = "MONITOR DE ARCO ELETRICO"
+      it 'returns product + FCP' do
+        expected = 'MONITOR DE ARCO ELETRICO'
         expected += "\n"
-        expected += "FCP: Alíq: 2,00% * Vlr: 4,71"
+        expected += 'FCP: Alíq: 2,00% * Vlr: 4,71'
 
         expect(subject.render).to eq expected
       end
     end
 
-    context "when have FCI + ST + infAdProd + FCP" do
+    context 'when have FCI + ST + infAdProd + FCP' do
       let(:xml_IFC_ST_infAdProd) do
         xml = <<-eos
         <det nItem="1">
@@ -151,16 +149,16 @@ describe BrDanfe::DanfeLib::Xprod do
 
       subject { BrDanfe::DanfeLib::Xprod.new(xml_IFC_ST_infAdProd) }
 
-      it "returns product + FCI + ST + infAdProd" do
-        expected = "MONITOR DE ARCO ELETRICO"
+      it 'returns product + FCI + ST + infAdProd' do
+        expected = 'MONITOR DE ARCO ELETRICO'
         expected += "\n"
-        expected += "Informações adicionais do produto"
+        expected += 'Informações adicionais do produto'
         expected += "\n"
-        expected +="FCI: 12232531-74B2-4FDD-87A6-CF0AD3E55386"
+        expected += 'FCI: 12232531-74B2-4FDD-87A6-CF0AD3E55386'
         expected += "\n"
-        expected += "ST: MVA: 56,00% * Alíq: 17,00% * BC: 479,82 * Vlr: 29,28"
+        expected += 'ST: MVA: 56,00% * Alíq: 17,00% * BC: 479,82 * Vlr: 29,28'
         expected += "\n"
-        expected += "FCP: Alíq: 2,00% * Vlr: 4,71"
+        expected += 'FCP: Alíq: 2,00% * Vlr: 4,71'
 
         expect(subject.render).to eq expected
       end

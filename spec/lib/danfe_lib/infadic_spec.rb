@@ -1,7 +1,7 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe BrDanfe::DanfeLib::Infadic do
-  let(:base_dir) { "./spec/fixtures/nfe/lib/" }
+  let(:base_dir) { './spec/fixtures/nfe/lib/' }
   let(:output_pdf) { "#{base_dir}output.pdf" }
 
   let(:pdf) { BrDanfe::DanfeLib::Document.new }
@@ -9,7 +9,7 @@ describe BrDanfe::DanfeLib::Infadic do
 
   subject { described_class.new(pdf, xml) }
 
-  describe "#render" do
+  describe '#render' do
     let(:xml_as_string) do
       <<-eos
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
@@ -78,13 +78,13 @@ describe BrDanfe::DanfeLib::Infadic do
       eos
     end
 
-    context "without extra volume" do
+    context 'without extra volume' do
       before do
         subject.render(1)
         File.delete(output_pdf) if File.exist?(output_pdf)
       end
 
-      it "renders xml to the pdf" do
+      it 'renders xml to the pdf' do
         expect(File.exist?(output_pdf)).to be_falsey
 
         pdf.render_file output_pdf
@@ -92,7 +92,7 @@ describe BrDanfe::DanfeLib::Infadic do
         expect("#{base_dir}infadic#render.pdf").to have_same_content_of file: output_pdf
       end
 
-      context "with difal" do
+      context 'with difal' do
         let(:xml_as_string) do
           <<-eos
           <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
@@ -138,7 +138,7 @@ describe BrDanfe::DanfeLib::Infadic do
           eos
         end
 
-        it "renders xml to the pdf" do
+        it 'renders xml to the pdf' do
           expect(File.exist?(output_pdf)).to be_falsey
 
           pdf.render_file output_pdf
@@ -147,7 +147,7 @@ describe BrDanfe::DanfeLib::Infadic do
         end
       end
 
-      context "with too big address" do
+      context 'with too big address' do
         let(:xml_as_string) do
           <<-eos
       <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
@@ -183,7 +183,7 @@ describe BrDanfe::DanfeLib::Infadic do
           eos
         end
 
-        it "renders xml to the pdf with street on observation" do
+        it 'renders xml to the pdf with street on observation' do
           expect(File.exist?(output_pdf)).to be_falsey
 
           pdf.render_file output_pdf
@@ -193,13 +193,13 @@ describe BrDanfe::DanfeLib::Infadic do
       end
     end
 
-    context "with extra volume" do
+    context 'with extra volume' do
       before do
         subject.render(3)
         File.delete(output_pdf) if File.exist?(output_pdf)
       end
 
-      it "renders xml to the pdf" do
+      it 'renders xml to the pdf' do
         expect(File.exist?(output_pdf)).to be_falsey
 
         pdf.render_file output_pdf
@@ -207,7 +207,7 @@ describe BrDanfe::DanfeLib::Infadic do
         expect("#{base_dir}infadic#render-extra_volume.pdf").to have_same_content_of file: output_pdf
       end
 
-      context "with difal" do
+      context 'with difal' do
         let(:xml_as_string) do
           <<-eos
         <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
@@ -251,7 +251,7 @@ describe BrDanfe::DanfeLib::Infadic do
           eos
         end
 
-        it "renders xml to the pdf" do
+        it 'renders xml to the pdf' do
           expect(File.exist?(output_pdf)).to be_falsey
 
           pdf.render_file output_pdf

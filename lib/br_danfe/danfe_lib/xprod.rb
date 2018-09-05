@@ -6,7 +6,7 @@ module BrDanfe
       end
 
       def render
-        xprod = "#{@det.css('prod/xProd').text}"
+        xprod = @det.css('prod/xProd').text.to_s
 
         xprod += infAdProd if has_infAdProd?
         xprod += fci if fci?
@@ -23,7 +23,7 @@ module BrDanfe
       end
 
       def has_infAdProd?
-        !@det.css("infAdProd").text.empty?
+        !@det.css('infAdProd').text.empty?
       end
 
       def fci
@@ -44,7 +44,7 @@ module BrDanfe
       end
 
       def st?
-        @det.css("ICMS/*/vBCST").text.to_i > 0
+        @det.css('ICMS/*/vBCST').text.to_i > 0
       end
 
       def fcp
@@ -54,7 +54,7 @@ module BrDanfe
       end
 
       def fcp?
-        @det.css("ICMS00/vFCP").text.to_i > 0
+        @det.css('ICMS00/vFCP').text.to_i > 0
       end
     end
   end
